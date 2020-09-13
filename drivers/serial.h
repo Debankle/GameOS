@@ -1,0 +1,6 @@
+#ifndef GAMEOS_SERIAL_H
+#define GAMEOS_SERIAL_H
+
+
+
+#endif // GAMEOS_SERIAL_H
