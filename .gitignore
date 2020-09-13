@@ -1,0 +1,5 @@
+GameOS.iso
+kernel.x86
+bochslog.txt
+**/*.o
+iso/boot/kernel.x86
