@@ -13,7 +13,7 @@ ASFLAGS = -f elf
 
 .PHONY: all kernel.x86 build
 
-all: kernel.x86
+all: GameOS.iso
 
 kernel.x86: $(C_OBJECTS) $(S_OBJECTS)
 	ld $(LDFLAGS) $^ -o kernel.x86
