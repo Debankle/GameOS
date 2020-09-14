@@ -40,12 +40,10 @@ void kprint_char(char c) {
     if (row == MAX_ROWS) {
         kscroll();
     }
-
-    move_cursor(row, col);
 }
 
-void set_colour(colour_t c) {
-    colour = ((0 & 0x0f) << 4) | (c & 0x0f);
+void set_colour(colour_t fg, colour_t bg) {
+    colour = ((bg & 0x0f) << 4) | (fg & 0x0f);
 }
 
 /* -------- PUBLIC FUNCTIONS -------- */
@@ -55,10 +53,10 @@ void kprint(const char *s) {
     for (int i = 0; i < len; i++) {
         kprint_char(s[i]);
     }
+    move_cursor(row, col);
 }
 
 void clear_display() {
-    set_colour(BLACK);
     row = 0;
     col = 0;
     for (int i =0; i < MAX_ROWS * MAX_COLS; i++) {
@@ -72,6 +70,6 @@ void display_init() {
     video_addr = (char *)0x000b8000;
     row = 0;
     col = 0;
+    set_colour(WHITE, BLACK);
     clear_display();
-    set_colour(WHITE);
 }
