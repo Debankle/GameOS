@@ -11,7 +11,7 @@ LDFLAGS = -T link.ld -melf_i386
 AS = nasm
 ASFLAGS = -f elf
 
-.PHONY: all kernel.x86 build
+.PHONY: all GameOS.iso build
 
 all: GameOS.iso
 
@@ -36,4 +36,4 @@ run: GameOS.iso
 	$(AS) $(ASFLAGS) $< -o $@
 
 clean:
-	rm -rf $(C_OBJECTS) $(S_OBJECTS) kernel.x86 iso/boot/kernel.x86 GameOS.iso bochslog.txt
+	rm -rf $(C_OBJECTS) $(S_OBJECTS) kernel.x86 iso/boot/kernel.x86 GameOS.iso bochslog.txt *.out
