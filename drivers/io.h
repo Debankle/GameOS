@@ -8,5 +8,6 @@
 #define FB_LOW_BYTE_COMMAND     15
 
 void outb(short port, char data);
+char inb(short port);
 
 #endif // GAMEOS_IO_H
