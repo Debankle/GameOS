@@ -17,6 +17,7 @@ section .text
     align 4
 
     loader:
+        cli
         mov esp, kernel_stack + KERNEL_STACK_SIZE
         call kmain
 
