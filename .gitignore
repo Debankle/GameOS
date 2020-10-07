@@ -3,3 +3,5 @@ kernel.x86
 bochslog.txt
 **/*.o
 iso/boot/kernel.x86
+
+com1.out
