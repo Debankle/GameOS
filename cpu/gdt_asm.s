@@ -1,9 +1,5 @@
 global load_gdt
 
-gdtr:
-    dw 0
-    dd 0
-
 load_gdt:
     mov eax, [esp+4]
     lgdt [eax]
