@@ -1,6 +1,7 @@
 #include "serial.h"
 #include "io.h"
-
+#include "../libc/string.h"
+#include "../libc/stdint.h"
 
 void serial_configure_baud_rate(short com, short divisor) {
     outb(SERIAL_LINE_COMMAND_PORT(com), SERIAL_LINE_ENABLE_DLAB);
@@ -44,6 +45,12 @@ void write_serial(short com, char a) {
     outb(SERIAL_DATA_PORT(com), a);
 }
 
+void write_serial_str(short com, char *s) {
+    uint32_t len = strlen(s);
+    for (uint32_t i = 0; i < len; i++) {
+        write_serial(com, s[i]);
+    }
+}
 
 void init_serial_device(short com) {
     serial_configure_baud_rate(com, 0x03);

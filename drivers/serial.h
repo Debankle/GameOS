@@ -25,6 +25,7 @@ int serial_is_transmit_fifo_empty(int com);
 
 char read_serial(short com);
 void write_serial(short com, char a);
+void write_serial_str(short com, char *s);
 
 void serial_init();
 
