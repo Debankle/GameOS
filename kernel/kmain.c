@@ -1,16 +1,17 @@
 #include "../drivers/display.h"
 #include "../drivers/serial.h"
 #include "../cpu/gdt.h"
+#include "../cpu/idt.h"
 
 void kinit() {
-    display_init();
     serial_init();
+    display_init();
     gdt_init();
+    idt_init();
 }
 
 void kmain() {
     kinit();
 
     kprint("Hello World!\n");
-    write_serial(SERIAL_COM1_BASE, 'p');
 }
